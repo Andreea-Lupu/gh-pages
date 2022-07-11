@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - copy-main
   release:
     types:
       - published
