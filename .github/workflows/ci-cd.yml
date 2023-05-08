@@ -45,8 +45,8 @@ jobs:
       - if: github.event_name == 'release' && github.event.action == 'published'
         name: Set target branch on release
         run: |
-          echo "TARGET_BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
-          echo "SINCE=HEAD" >> $GITHUB_ENV
+          echo "TARGET_BRANCH=${{ github.event.release.target_commitish }}" >> $GITHUB_ENV
+          echo "SINCE=HEAD~1" >> $GITHUB_ENV
       - name: Run chart-testing list-changed
         id: list-changed
         run: |
