@@ -4,7 +4,7 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - copy-main2
 name: chart-releaser
 jobs:
   helm-chart-release:
