@@ -54,7 +54,9 @@ jobs:
         uses: helm/kind-action@v1.4.0
       - name: Install and test helm charts
         if: steps.list-changed.outputs.changed == 'true' || github.event_name == 'push'
-        run: ct install --target-branch ${{ env.TARGET_BRANCH }} --since ${{ env.SINCE }}
+        run: |-
+          kubectl apply -f charts/zot/ci/secrets.yaml
+          ct install --namespace default --target-branch ${{ env.TARGET_BRANCH }} --since ${{ env.SINCE }}
       - if: github.event_name == 'push' && github.ref_name == 'main'
         name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.4.0
