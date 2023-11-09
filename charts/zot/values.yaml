@@ -154,3 +154,7 @@ env:
 #    secretKeyRef:
 #      name: mysecret
 #      key: username
+
+testFramework:
+  enable: false
+  deployTlsSecrets: false

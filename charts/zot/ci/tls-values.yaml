@@ -46,3 +46,7 @@ externalSecrets:
     mountPath: "/secret/servercert"
   - secretName: "serverkey"
     mountPath: "/secret/serverkey"
+
+testFramework:
+  enable: true
+  deployTlsSecrets: true
