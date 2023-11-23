@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: v2.0.0-testfix4
+appVersion: v2.0.0-testfix5
 description: A Helm chart for Kubernetes
 name: zot
 type: application
-version: 0.1.40
+version: 0.1.41
