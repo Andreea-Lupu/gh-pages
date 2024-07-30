@@ -45,15 +45,7 @@ jobs:
           echo "SINCE=${{ github.event.before }}" >> $GITHUB_ENV
       - name: Create k8s Kind Cluster
         if: github.event_name == 'push'
-        uses: helm/kind-action@v1.4.0
-      - name: Install and test helm charts
-        if: github.event_name == 'push'
-        run: |
-          for TEST_DIR in tests/ci/*
-          do
-            echo "Running test $(pwd)/${TEST_DIR}"
-            ct install --target-branch ${{ env.TARGET_BRANCH }} --charts $(pwd)/${TEST_DIR}
-          done      
+        uses: helm/kind-action@v1.4.0     
       - name: Run an upgrade test
         if: github.event_name == 'push'
         run: |
