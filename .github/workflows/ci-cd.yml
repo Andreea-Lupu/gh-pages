@@ -57,4 +57,4 @@ jobs:
       - name: Run an upgrade test
         if: github.event_name == 'push'
         run: |
-          ct install --upgrade --target-branch ${{ env.TARGET_BRANCH }}
+          ct install --upgrade --remote https://github.com/project-zot/helm-charts.git --target-branch main
